@@ -1,18 +1,12 @@
 package com.rafalzwiazek.todo.data;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.stereotype.Service;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table (name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
-@ToString
-@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,14 +1,12 @@
 package com.rafalzwiazek.todo.data;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+@Data
 @Entity
-@Setter
-@Getter
-@NoArgsConstructor
 @Table(name = "task")
 public class Task {
     @Id

@@ -1,6 +1,7 @@
 package com.rafalzwiazek.todo.service;
 
 import com.rafalzwiazek.todo.data.User;
+import com.rafalzwiazek.todo.errors.ErrorUser;
 import com.rafalzwiazek.todo.service.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -12,13 +13,13 @@ import java.util.Optional;
 public class UserService {
     @Autowired
     UserRepository userRepository;
-    public String saveUnique(User user) throws DataIntegrityViolationException {
+    public ErrorUser saveUnique(User user) throws DataIntegrityViolationException {
         try {
             userRepository.save(user);
 
-            return "User saved successfully";
+            return ErrorUser.USER_SAVED;
         } catch(Exception e){
-            return "User exists";
+            return ErrorUser.USER_EXISTS;
         }
     }
 }
