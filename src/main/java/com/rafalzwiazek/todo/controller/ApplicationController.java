@@ -24,10 +24,16 @@ public class ApplicationController {
     UserRepository userRepository;
     @Autowired
     UserService userService;
-    @GetMapping("/**")
+    @GetMapping("/")
     public ModelAndView indexMain(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
+        modelAndView.setViewName("menu");
+        return modelAndView;
+    }
+    @GetMapping("/author")
+    public ModelAndView author(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("about");
         return modelAndView;
     }
 
