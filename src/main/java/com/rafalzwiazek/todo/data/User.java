@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Getter
 @Setter
 @Entity
-@Table (name = "users")
+@Table (name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 @ToString
 @NoArgsConstructor
 public class User {
@@ -18,7 +18,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int id;
-    @Column(name = "username", nullable = false, unique = true)
+    @Column(name = "username", nullable = false)
     private String username;
     @Column(name = "password", nullable = false)
     private String password;

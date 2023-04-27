@@ -1,5 +1,5 @@
 WAR_NAME= "todo-0.0.1-SNAPSHOT.war"
-TOMCAT_HOME=/home/rafal-zwiazek/projects/apache-tomcat-11.0.0-M5
+TOMCAT_HOME=/Users/rafalzwiazek/Desktop/Tomcat11
 
 mvn clean install
 cp "target/todo-0.0.1-SNAPSHOT.war" "$TOMCAT_HOME/webapps"

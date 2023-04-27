@@ -31,9 +31,7 @@ public class ApplicationController {
     @ResponseBody
     public String testowo(){
         User user = User.userInit("Test", "tadeusz");
-        userRepository.save(user);
-        return userRepository.findByUsername("Test").toString();
-
+        return userService.saveUnique(user);
     }
 
 }
