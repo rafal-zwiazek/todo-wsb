@@ -1,22 +1,19 @@
 package com.rafalzwiazek.todo.controller;
-import com.rafalzwiazek.todo.data.Priority;
-import com.rafalzwiazek.todo.data.Task;
 import com.rafalzwiazek.todo.data.User;
 import com.rafalzwiazek.todo.errors.ErrorUser;
-import com.rafalzwiazek.todo.service.TaskRepository;
-import com.rafalzwiazek.todo.service.UserRepository;
+import com.rafalzwiazek.todo.repositories.TaskRepository;
+import com.rafalzwiazek.todo.repositories.UserRepository;
 import com.rafalzwiazek.todo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-import java.util.Map;
-
 @Controller
+@SessionAttributes("user")
+
 public class ApplicationController {
     @Autowired
     TaskRepository taskService;
@@ -25,10 +22,8 @@ public class ApplicationController {
     @Autowired
     UserService userService;
     @GetMapping("/")
-    public ModelAndView indexMain(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("menu");
-        return modelAndView;
+    public String indexMain(){
+    return "menu";
     }
     @GetMapping("/author")
     public ModelAndView author(){
@@ -36,20 +31,21 @@ public class ApplicationController {
         modelAndView.setViewName("about");
         return modelAndView;
     }
-
-    @GetMapping("/test")
-    @ResponseBody
-    public String testowo(){
-        User user = User.userInit("Test", "tadeusz");
-        switch(userService.saveUnique(user)){
-            case USER_SAVED -> {
-                return "User zarejestrowany";
-            }
-            case USER_EXISTS -> {
-                return "User istnieje w bazie";
-            }
-
+    @GetMapping("/register")
+    public String register(Model model){
+        User user = new User();
+        model.addAttribute("user", user);
+        return "register";
+    }
+    @PostMapping("/register")
+    public String registerPOST(@ModelAttribute("user") User user){
+return "approved";
+    }
+    @RequestMapping("/approved")
+    public String approved(Model model, @ModelAttribute("user") User user){
+        if(userService.saveUnique(user).equals(ErrorUser.USER_SAVED)) {
+            return "approved";
         }
-        return "chuj";
+        return "menu";
     }
 }

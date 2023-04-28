@@ -1,4 +1,4 @@
-package com.rafalzwiazek.todo.service;
+package com.rafalzwiazek.todo.repositories;
 
 import com.rafalzwiazek.todo.data.User;
 import org.springframework.data.repository.CrudRepository;

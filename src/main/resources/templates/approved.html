@@ -1,10 +1,13 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Dokument bez tytułu</title>
+<title>User zarejestrowany</title>
 </head>
-
+<div align="center">
+    <h2>Registration Succeeded!</h2>
+    <span>Full name:</span><span th:text="${user.username}"></span><br/>
+</div>
 <body>
 </body>
 </html>

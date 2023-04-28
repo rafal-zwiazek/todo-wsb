@@ -17,11 +17,4 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    private User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-    public static User userInit(String username, String password){
-        return new User(username, password);
-    }
 }

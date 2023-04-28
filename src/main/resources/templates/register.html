@@ -4,12 +4,13 @@
 	<title>Logowanie</title>
 		    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
-	<h1>Zaloguj się</h1>
+	<h1>Zarejestruj się</h1>
 <body>
-	<form action = "#" th:action = "@{author}" th:object="${login}" method = "post">
-	<p>Username: <input type = "text" th:field="*{username}" required/></p>
-	<p>Hasło: <input type = "text" th:field="*{password}" required/></p>
+	<form action = "#" th:action = "@{./approved}" th:object="${user}" method = "post">
+	<p>Username: <input type = "text" th:field="*{username}" required placeholder = "string"/></p>
+	<p>Hasło: <input type = "password" th:field="*{password}" required placeholder = "string"/></p>
 		<p><input type = "submit" value = "Zaloguj"/></p>
+
 		</form>
 	</body>
 </html>
