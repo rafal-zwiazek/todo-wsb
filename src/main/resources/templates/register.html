@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<title>Logowanie</title>
+		    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<h1>Zaloguj się</h1>
+<body>
+	<form action = "#" th:action = "@{author}" th:object="${login}" method = "post">
+	<p>Username: <input type = "text" th:field="*{username}" required/></p>
+	<p>Hasło: <input type = "text" th:field="*{password}" required/></p>
+		<p><input type = "submit" value = "Zaloguj"/></p>
+		</form>
+	</body>
+</html>
