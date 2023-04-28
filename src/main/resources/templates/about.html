@@ -1,20 +1,27 @@
 <!doctype html>
-<html xmlns:menu="./menu">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Autor</title>
 </head>
-<div menu:insert::copy>		<div style="text-align: center;">
+<div style="text-align: center;">
 	<h1>O autorze</h1>
 <div align = "center">
 <p><img style = vertical-align:middle src = https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
 		width = 30 height= 30>
-	<span style="vertical-align:middle"><a href="https://github.com/rafal-zwiazek" title="Github">Github</a></span></p>
-	<img style = vertical-align:middle src=https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/800px-LinkedIn_logo_initials.png width = 25 height = 25> <span style="vertical-align:middle"><a href = "https://linkedin.com/in/rafal-zwiazek" title ="Linkedin">Linkedin</span>
+	<span style="vertical-align:middle"><a href="https://github.com/rafal-zwiazek" title="Github">Github</a>
+	</span>
+	</p>
+	<img style = vertical-align:middle src=https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/800px-LinkedIn_logo_initials.png width = 25 height = 25>
+	<span style="vertical-align:middle">
+	<a href = "https://linkedin.com/in/rafal-zwiazek" title ="Linkedin">Linkedin
+	</span>
+	</a>
 	</div>
 <p></p>
 	</div>
 </div>
 <body>
+	<div th:insert = "navbar :: navbar">		
 </body>
 </html>

@@ -26,10 +26,8 @@ public class ApplicationController {
     return "menu";
     }
     @GetMapping("/author")
-    public ModelAndView author(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("about");
-        return modelAndView;
+    public String author(){
+return "about";
     }
     @GetMapping("/register")
     public String register(Model model){
@@ -46,6 +44,6 @@ return "approved";
         if(userService.saveUnique(user).equals(ErrorUser.USER_SAVED)) {
             return "approved";
         }
-        return "menu";
+        return "userexists";
     }
 }
