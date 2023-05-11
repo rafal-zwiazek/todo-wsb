@@ -4,11 +4,11 @@
 	<title>Logowanie</title>
 		    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
-	<h1>Zarejestruj się</h1>
+	<h1>Zaloguj się</h1>
 <body>
-	<form action = "#" th:action = "@{./validate-register}" th:object="${user}" method = "post">
-	<p>Username: <input type = "text" th:field="*{username}"/>
-	<p>Hasło: <input type = "password" th:field="*{password}"/>
+	<form action = "#" th:action = "@{./login-validate}" th:object="${user}" method = "post">
+	<p>Username: <input type = "text" th:field="*{username}"/></p>
+	<p>Hasło: <input type = "password" th:field="*{password}"/></p>
 		<p><input type = "submit" value = "Zaloguj"/></p>
 
 		</form>

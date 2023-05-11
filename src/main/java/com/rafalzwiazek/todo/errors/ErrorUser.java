@@ -4,5 +4,5 @@ public enum ErrorUser {
     USER_EXISTS,
     USER_DOESNT_EXISTS,
     WRONG_PASSWORD,
-    USER_SAVED;
+    USER_SAVED, LOGIN_SUCCESSFUL;
 }

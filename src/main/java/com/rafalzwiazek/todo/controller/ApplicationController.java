@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.ModelAndView;
+
 
 @Controller
 @SessionAttributes("user")
@@ -35,15 +34,22 @@ return "about";
         model.addAttribute("user", user);
         return "register";
     }
-    @PostMapping("/register")
-    public String registerPOST(@ModelAttribute("user") User user){
-return "approved";
-    }
-    @RequestMapping("/approved")
-    public String approved(Model model, @ModelAttribute("user") User user){
+    @RequestMapping("/validate-register")
+    public String registerValidation(Model model, @ModelAttribute("user") User user){
         if(userService.saveUnique(user).equals(ErrorUser.USER_SAVED)) {
             return "approved";
         }
-        return "userexists";
+        return "userExists";
+    }
+    @RequestMapping("/login")
+    public String showLoginPage(Model model){
+        return "loginPage";
+    }
+    @RequestMapping("/login-validate")
+    public String loginValidation(Model model, @ModelAttribute("user") User user){
+        if(userService.loginUser(user).equals(ErrorUser.LOGIN_SUCCESSFUL)){
+            return "logged";
+        }
+    return "loginFailed";
     }
 }
