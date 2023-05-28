@@ -1,0 +1,35 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Witaj!</title>
+</head>
+<h1> <br><span>Witaj </span>!<br/>
+</h1>
+<body>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Created</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="task, stat : ${tasksList}">
+        <td class="align-middle" th:text="${task.id}"></td>
+        <td class="align-middle" th:text="${task.created}"></td>
+        <td class="align-middle" th:text="${task.name}"></td>
+        <td class="align-middle" th:text="${task.description}"></td>
+    </tr>
+    <tr th:if="${tasksList.isEmpty()}">
+        <td class="text-center" colspan="3">No Records found. Add some...!</td>
+    </tr>
+</table>
+<a href="http://localhost:8080/user/add">Dodaj zadanie</a>
+<a href="http://localhost:8080/user/delete">Usuń zadanie</a>
+<a href="http://localhost:8080/logout">Wyloguj</a>
+
+</body>
+</html>
